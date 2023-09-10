@@ -9,11 +9,14 @@ void decimalToBinary(int decimal_Num) {
         decimal_Num /= 2;
         i++;
     }
+	
+	if( binary_Num[0] == binary_Num[i - 1]){
+		std::cout << "TRUE" << std::endl;
+	}
+	else{
+		std::cout << "folse" << std::endl;
+	}
 
-    for (int j = i - 1; j >= 0; j--) {
-        std::cout << binary_Num[j];
-    }
-    std::cout << std::endl;
 }
 
 int main() {
