@@ -31,12 +31,11 @@ void longest_word(std::string str, int length) {
         }
     }
 
-    if (current_length > max_length) {
-        max_start = start_index;
-        max_end = length;
-    }
+    /* if (current_length > max_length) { */
+    /*     max_start = start_index; */
+    /*     max_end = length; */
+    /* } */
 
-    // Print the longest word
     for (int j = max_start; j < max_end; ++j) {
         std::cout << str[j];
     }
