@@ -17,5 +17,6 @@ inotifywait -m -e close_write --format "%f" . |
 while read -r filename; do
     if endsWithCpp "$filename"; then
         compileWithGpp "$filename"
+#		echo  "compiled"
     fi
-done
+done &

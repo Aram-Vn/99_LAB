@@ -1,26 +1,24 @@
 #include <iostream>
 
-void swp (int* ptr_1, int* ptr_2){
+void SWP(int* ptr1, int* ptr2);
 
- int ptr_tmp = *ptr_1;
- *ptr_1 = *ptr_2;
- *ptr_2 = *ptr_tmp;
+int main() {
+  
+  int a = 5;
+  int b = 10;
+
+  std::cout << "a = " << a << " b = " << b << std::endl;
+
+  SWP(&a, &b);
+
+  std::cout << "a = " << a << " b = " << b << std::endl;
 
 }
 
-int main(){
+void SWP(int* ptr1, int* ptr2){
 
- int num1 = 9;
- int num2 = 5;
-
- int* ptr_1 = &num1;
- int* ptr_2 = &num2;
- 
- swp(ptr_1, ptr_2);
- 
- std::cout << *ptr_1 << std::endl;
- std::cout << *ptr_2 << std::endl;
-
-
+    int temp = *ptr1;  
+    *ptr1 = *ptr2;    
+    *ptr2 = temp;    
 
 }
