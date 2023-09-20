@@ -19,4 +19,4 @@ while read -r filename; do
         compileWithGpp "$filename"
 #		echo  "compiled"
     fi
-done &
+done 
