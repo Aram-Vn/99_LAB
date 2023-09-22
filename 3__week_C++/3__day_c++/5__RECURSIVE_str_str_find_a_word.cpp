@@ -20,7 +20,7 @@ const char* ptr_ptr (const char* arr, const char* ptr){
 	const char* tmp = arr;
 	const char* tmp1 = ptr;
 
-	if(*arr == '\0'){
+	if(*arr == '\0' || *ptr == '\0'){
 		if(*ptr == '\0'){
 			return tmp;
 		}

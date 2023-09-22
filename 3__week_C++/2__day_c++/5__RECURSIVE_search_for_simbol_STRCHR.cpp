@@ -30,13 +30,13 @@ int r_len(const char* str){
 
 const char* str_chr(const char* str, char c, int len) {
 
-		if(str[len] == c){
-			return &str[len];
-		}
+	if(str[len] == c){
+		return &str[len];
+	}
 
-		if(len < 0){
-			return nullptr;
-		}
+	if(len < 0){
+		return nullptr;
+	}
 
-		return str_chr(str, c, len - 1);
+	return str_chr(str, c, len - 1);
 }
