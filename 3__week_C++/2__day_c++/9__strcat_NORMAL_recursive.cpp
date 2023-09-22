@@ -26,4 +26,3 @@ void str_cat(char* dest, const char* src){
 	}
 	
 }
-

@@ -7,15 +7,18 @@ double multiply(double a, double b);
 double divide(double a, double b);
 
 int main() {
- std::map<char, double (*)(double, double)> operators;
- operators['+'] = add;
- operators['-'] = subtract;
- operators['*'] = multiply;
- operators['/'] = divide;
+
+ std::map<char, double(*)(double, double)> operators_MAP;
+ operators_MAP['+'] = add;
+ operators_MAP['-'] = subtract;
+ operators_MAP['*'] = multiply;
+ operators_MAP['/'] = divide;
 
  double operand1 = 0; 
  double operand2 = 0;
  char operation = '0';
+
+// std::cout << subtract << std::endl;
 
  std::cout << "Enter first num\n";
  std::cin >> operand1; 
@@ -24,18 +27,16 @@ int main() {
  std::cout << "Enter second num\n";
  std::cin >> operand2; 
 
-	if(operators.find(operation) != operators.end()){
+ std::cout << operators_MAP[operation](operand1, operand2) << std::endl;
 
-		double (*operationFunc)(double, double) = operators[operation];
-
-		double result = operationFunc(operand1, operand2);
-
-		std::cout << "Result: " << result << std::endl;
-
-	} 
-	else{
-		std::cerr << "Error: Invalid operator!" << std::endl;
-	}
+	/* if(operators_MAP.find(operation) != operators_MAP.end()){ */
+	/* 	double (*operationFunc)(double, double) = operators_MAP[operation]; */
+	/* 	double result = operationFunc(operand1, operand2); */
+	/* 	std::cout << "Result: " << result << std::endl; */
+	/* } */ 
+	/* else{ */
+	/* 	std::cerr << "Invalid operator!" << std::endl; */
+	/* } */
 
 }
 
@@ -56,7 +57,7 @@ double divide(double a, double b) {
     if (b != 0) {
         return a / b;
     } else {
-        std::cerr << "Error: Can't divide by zero!" << std::endl;
-		return 0.0;
+        std::cout << "Error: Can't divide by zero!" << std::endl;
+		exit(1);
     }
 }
