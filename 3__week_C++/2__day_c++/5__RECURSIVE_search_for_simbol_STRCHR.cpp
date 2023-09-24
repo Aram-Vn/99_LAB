@@ -13,7 +13,7 @@ int main(){
 
  int len = r_len(str);
 
- std::cout << *(str_chr(str , c, len)) << std::endl;
+ std::cout << (str_chr(str , c, len)) << std::endl;
 
  const char* ptr = str_chr(str, c, len);
  std::cout << (const void*) ptr << std::endl;

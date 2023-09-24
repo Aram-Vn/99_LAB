@@ -17,13 +17,13 @@ int main(){
 }
 
 const char* ptr_ptr (const char* arr, const char* ptr){
-	const char* tmp = arr;
-	const char* tmp1 = ptr;
+	const char* tmp_arr = arr;
+	const char* tmp_ptr = ptr;
 
 	while(*arr != '\0' && *ptr != '\0'){
 		if(*arr != *ptr){
-			arr = ++tmp;
-			ptr = tmp1;
+			arr = ++tmp_arr;
+			ptr = tmp_ptr;
 		}
 		else{
 			++arr;
