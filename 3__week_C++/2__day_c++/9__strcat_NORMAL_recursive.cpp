@@ -13,13 +13,14 @@ int main(){
 
 void str_cat(char* dest, const char* src){
 
-	if(*dest == '\0'){
-		while(*src){
-			*dest = *src;
-			++dest;
-			++src;
-		}
+	if(*src == '\0'){
 		*dest = '\0';
+		return;
+	}
+
+	if(*dest == '\0'){
+		str_cat(dest + 1, src + 1);
+		*dest = *src;
 	}
 	else{
 		str_cat(dest + 1, src);
