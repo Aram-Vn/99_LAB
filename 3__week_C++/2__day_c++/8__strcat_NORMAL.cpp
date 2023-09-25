@@ -1,24 +1,21 @@
 #include <iostream>
 
- size_t r_len(const char* dest);
- void str_cat(char* dest, const char* src, int size1);
+ void str_cat(char* dest, const char* src);
 
 int main(){
 
  char dest[100] = "HELLO!";
  const char* src = "world";
  
- int size1 = r_len(dest);
- int size2 = r_len(src);
-
-// std::cout << str_cat(dest, src, size1) << std::endl;
- str_cat(dest, src, size1);
+ str_cat(dest, src);
  std::cout << dest << std::endl;
 }
 
-void str_cat(char* dest, const char* src, int size1){
+void str_cat(char* dest, const char* src){
 
-	dest += size1;
+	while(*dest){
+		++dest;
+	}
 
 	while(*src){
 		*(dest) = *(src);
@@ -28,11 +25,3 @@ void str_cat(char* dest, const char* src, int size1){
 	*(dest) = '\0';
 }
 
-size_t r_len(const char* dest){
-
-	if(*dest == '\0'){
-		return 0;
-	}
-
-	return 1 +  r_len(dest + 1);
-}
