@@ -21,22 +21,14 @@ bool is_ascending_order(int num){
 	if(num < 0){
 		num = num * (-1);
 	}
-
-	/* if(num < 100){ */
-	/* 	if(num % 10 < num/10){ */
-	/* 		return false; */
-	/* 	} */
-	/* 	else{ */
-	/* 		return true; */
-	/* 	} */
-	/* } */
 	
-	while(num > 0){
-		if((num % 100)/10 > num % 10){
-			return false;
-		}
-		num /= 10;
-	}
-	return true;	
+	if(num <= 0){
+		return true;	
+	}	
 
+	if((num % 100)/10 > num % 10){
+		return false;
+	}
+
+	return is_ascending_order(num/10);
 }
