@@ -13,7 +13,7 @@ int main(){
 		std::cout << "YES" << std::endl;
 	}
 	else{
-		std::cout << "NO" << std::endl;
+		std::cout << "Nvazman kargova" << std::endl;
 	}
 }
 
@@ -22,7 +22,8 @@ bool is_ascending_order(int num){
 		num = num * (-1);
 	}
 
-	while(num > 100){
+	while(num > 10){
+//     naxavergin tvansh.  vergin tvansh.
 		if((num % 100)/10 < num % 10){
 //			std::cout << (num % 100)/10 << std::endl;
 //			std::cout << num % 10 << std::endl;				

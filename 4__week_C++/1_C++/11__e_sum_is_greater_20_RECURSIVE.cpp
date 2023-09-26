@@ -1,4 +1,3 @@
-/* //ե) թվի թվանշանների գումարը մեծ է քսանից, */
 
 /* #include <iostream> */
 
@@ -19,6 +18,11 @@
 
 /* bool sum_gr_20(int num){ */
 
+
+/* 	static int sum = 0; */
+/* //	int sum = 0; */
+/* 	sum += num%10; */
+
 /* 	std::cout << sum << "  " << num << std::endl; */
 
 /* 	if(sum > 20){ */
@@ -27,12 +31,13 @@
 
 /* 	if(num <= 0){ */
 /* 		if(sum > 20){ */
-/* 			return true; */
+/* 			return false; */
 /* 		} */
 /* 		else{ */
-/* 			return false; */
+/* 			return true; */
 /* 		} */
 /* 	} */
 
-/* 	return sum_gr_20(num / 10); */
+/* //	sum += num%10; */
+/* 	return num%10  sum_gr_20((num / 10)); */
 /* } */
