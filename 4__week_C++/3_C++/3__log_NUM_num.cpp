@@ -1,7 +1,6 @@
 #include <iostream>
 
 int log_2(int num, int himq);
-int log_bin(int num, int himq);
 
 int main(){
 
@@ -13,9 +12,8 @@ int main(){
  std::cout << "HIMQ\n";
  std::cin >> himq;
 
- std::cout << log_2(num, himq) << " LOG " << std::endl;
- std::cout << log_bin(num, himq) << " bin " << std::endl;
-
+ std::cout << "******" << std::endl;
+ std::cout << log_2(num, himq) << std::endl;
 }
 
 int log_2(int num, int himq){
@@ -27,6 +25,7 @@ int log_2(int num, int himq){
 
 	for(int i = 1 ; i <= (num + 1) / 2; ++i){
 		res *= himq;
+
 		if(res == num){
 			return i;
 		}
@@ -34,25 +33,6 @@ int log_2(int num, int himq){
 		if(num < res){
 			return --i;
 		}		
-	}
-
-	return -1;
-}
-
-int log_bin(int num, int himq){
-	if(num < 0){
-		return -1;
-	}
-
-	for(int i = 1 ; i <= (num + 1) / 2; ++i){
-		if(num == himq){
-			return i;
-		}
-	
-		if(num < himq){
-			return --i;
-		}	
-		num << 1;
 	}
 
 	return -1;

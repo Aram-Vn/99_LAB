@@ -1,15 +1,17 @@
 #include <iostream>
 
 int log_2(int num);
-//int log_bin(int num, int x);
+int log_bin(int num, int x);
 
 int main(){
 
  int num = 0;
  std::cin >> num;
 
-// std::cout << log_bin(num, 2) << " bin " << std::endl;
- std::cout << log_2(num) << std::endl;
+ std::cout << "********\n";
+ 
+ std::cout << log_bin(num, 2) << " bin " << std::endl;
+ std::cout << log_2(num) << " loop "<<std::endl;
 
 }
 
@@ -19,10 +21,6 @@ int log_2(int num){
 	if(num < 0){
 		return -1;
 	}
-
-	/* if(num == 5){ */
-	/* 	return 2; */
-	/* } */
 
 	for(int i = 1 ; i <= (num + 1) / 2; ++i){
 		res *= 2;
@@ -38,41 +36,26 @@ int log_2(int num){
 	return -1;
 }
 
-/* int log_bin(int num){ */
+int log_bin(int num, int x){
+	if(num < 0){
+		return -1;
+	}
 
-/* 	if(num < 0){ */
-/* 		return -1; */
-/* 	} */
+	if(num == 5){
+		return 2;
+	}
 
-/* 	for(int i = 2; i <= num / 2; i * 2){ */
-/* 			std::cout <<  i << " i "  <<std::endl; */
-/* 		if(num ^ i == 0){ */
-/* 			return ++i; */
-/* 		} */
-/* 	} */
-/* } */
-
-////////////////////////////////////////
-
-/* int log_bin(int num, int x){ */
-/* 	if(num < 0){ */
-/* 		return -1; */
-/* 	} */
-
-/* 	if(num == 5){ */
-/* 		return 2; */
-/* 	} */
-
-/* 	for(int i = 1 ; i <= x / 2; ++i){ */
-/* 		if(num == x){ */
-/* 			return i; */
-/* 		} */
+	for(int i = 1 ; num > 1 ; ++i){
+		if(num == x){
+			return i;
+		}
 	
-/* 		if(num < x){ */
-/* 			return --i; */
-/* 		} */	
-/* 		x << 1; */
-/* 	} */
+		if(num < x){
+			return --i;
+		}	
+		num = num >> 1;
+	}
 
-/* 	return -1; */
-/* } */
+	return 1;
+}
+
