@@ -20,17 +20,21 @@ int main(){
  std::cin >> side3;
 
  std::cout << "********\n";
- std::cout << "surface of triangle id: " << makeres(side1, side2, side3) << std::endl;
+ std::cout << "surface of triangle is: " << makeres(side1, side2, side3) << std::endl;
 }
 
 bool is_triangle(int side1,int side2,int side3){
 	if((side1 <= 0) || (side2 <= 0) || (side3 <= 0)){
-		std::cout << "NO side need to be > 0!!!" << std::endl;
+		std::cout << " ERROR\nNO side need to be > 0!!!" << std::endl;
 		return false;
 	}
 
-	return (side1 + side2 > side3 && side2 + side3 > side1 &&  side1 + side3 > side2);
+	if((side1 + side2 > side3 && side2 + side3 > side1 &&  side1 + side3 > side2)){
+		return true;
+	}
 
+	std::cout << "ERROR\nNO sum of 2 sides need to be < than 3-rd side!!!" << std::endl;
+	return false;
 }
 
 
@@ -42,29 +46,36 @@ int kisapar(int side1,int side2,int side3){
 
 
 int sqrt_1(int num){
+	
 	if(num < 0){
 		return -1;
 	}
 
-	if(num >= 1 && num <= 3 ){
-		return 1;
-	}
+	int start = 1;
+	int end = num / 2;
+	int target = num;
+	int mid = 0; 
 
-	for(int i = 2; i <= (num + 1) / 2; ++i){
-		if(i * i == num){
-			return i;
+	while(start <= end){
+		mid = (start + end) / 2;
+
+		if( mid * mid == target){
+			return mid;
 		}
-		if(i * i > num){
-			return --i;
+		else if(mid * mid > target){
+			end = mid - 1;
+		}
+		else if(mid * mid < target){
+			start = mid + 1;
 		}
 	}
-
-	return -1;
+	
+	return mid;
 }
 
 int makeres(int side1,int side2,int side3){
 	if(!(is_triangle(side1, side2, side3))){
-		std::cout << "NO sum of 2 sides need to be < than 3-rd side!!!" << std::endl;
+		std::cout << "INVALID INPUTT!!" << std::endl;
 		return -1;
 	}
 	
