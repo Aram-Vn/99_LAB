@@ -1,43 +1,52 @@
+//թվի թվանշանների գումարը մեծ է քսանից,
 
-/* #include <iostream> */
+#include <iostream>
 
-/* bool sum_gr_20(int num); */
+bool sum_gr_20(int num);
+int foo(int);
 
-/* int main(){ */
+int main(){
 
-/*  int num = 0; */
-/*  std::cin >> num; */
+ int num = 0;
+ std::cin >> num;
 
-/* 	if(sum_gr_20(num)){ */
-/* 		std::cout << "YES" << std::endl; */
-/* 	} */
-/* 	else{ */
-/* 		std::cout << "NO" << std::endl; */
-/* 	} */
-/* } */
+	std::cout << foo(num) << "  FOO" << std::endl;
 
-/* bool sum_gr_20(int num){ */
+	if(foo(num) > 20 ){
+		std::cout << "YES" << std::endl;
+	}
+	else{
+		std::cout << "NO" << std::endl;
+	}
+}
 
+int foo(int num) {
+    if (num == 0) {
+        return 0;
+    } else {
+        return num % 10 + foo(num / 10);
+    }
+}
 
-/* 	static int sum = 0; */
-/* //	int sum = 0; */
-/* 	sum += num%10; */
+bool sum_gr_20(int num){
 
-/* 	std::cout << sum << "  " << num << std::endl; */
+	static int sum = 0;
+	sum += num%10;
 
-/* 	if(sum > 20){ */
-/* 		return false; */
-/* 	} */
+	std::cout << sum << "  " << num << std::endl;
 
-/* 	if(num <= 0){ */
-/* 		if(sum > 20){ */
-/* 			return false; */
-/* 		} */
-/* 		else{ */
-/* 			return true; */
-/* 		} */
-/* 	} */
+	if(sum > 20){
+		return false;
+	}
 
-/* //	sum += num%10; */
-/* 	return num%10  sum_gr_20((num / 10)); */
-/* } */
+	if(num <= 0){
+		if(sum > 20){
+			return false;
+		}
+		else{
+			return true;
+		}
+	}
+
+	return sum_gr_20((num / 10));
+}

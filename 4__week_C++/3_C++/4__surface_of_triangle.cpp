@@ -51,6 +51,10 @@ int sqrt_1(int num){
 		return -1;
 	}
 
+	if(num == 1){
+		return 1;
+	}
+
 	int start = 1;
 	int end = num / 2;
 	int target = num;
