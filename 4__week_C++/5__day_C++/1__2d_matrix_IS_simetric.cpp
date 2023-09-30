@@ -19,7 +19,6 @@ int main(){
 	else{
 		std::cout << "NO" << std::endl;	
 	}
-		
 }
 
 bool Is_simetric(int arr[][3]){
@@ -34,5 +33,4 @@ bool Is_simetric(int arr[][3]){
 	}
 
 	return true;
-
 }
