@@ -13,7 +13,7 @@ int main(){
 
 int amount_of_1(int num){
 	int count = 0;
-	int size = 32;
+	int size = sizeof(int) * 8;
 
 	while(true){
 		if(num == -1){

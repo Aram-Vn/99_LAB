@@ -10,10 +10,10 @@ int main(){
  std::cin >> num;
 
 	if(is_ascending_order(num)){
-		std::cout << "YES" << std::endl;
+		std::cout << "nvazman kargov chi" << std::endl;
 	}
 	else{
-		std::cout << "Nvazman kargova" << std::endl;
+		std::cout << "Nvazman kargova!!" << std::endl;
 	}
 }
 
