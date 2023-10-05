@@ -1,26 +1,53 @@
-/* #include <iostream> */
+//tvi erkuakan kodum 1 eri qanakay zuyg e te kent, ete zuyg e tpel 0, hakarak depqum`1; 
+#include <iostream>
 
-/* bool amount_of_1_even(int num); */
+int even_ones_in_binary(int);
+int recc_even_ones_in_bin(int, int);
 
-/* int main(){ */
+int main()
+{
+	int num = 0;
+	std::cin >> num;
+//	std::cout << even_ones_in_binary(num);	
+	std::cout << recc_even_ones_in_bin(num, sizeof(int) * 8) << std::endl;
+return  0;
 
-/*  int num = 0; */
-/*  std::cin >> num; */
+}
 
-/* 	if(amount_of_1_even(num)){ */
-/* 		std::cout << "odd" << std::endl; */
-/* 	} */
-/* 	else{ */
-/* 		std::cout << "eaven" << std::endl; */
-/* 	} */
-/* } */
+int recc_even_ones_in_bin(int num, int i)
+{
+	if(i == 0)	{
+		return 0;
+	}	
+	return (num & 1) ^ recc_even_ones_in_bin(num >> 1, i - 1);
+}
+/*
+int even_ones_in_binary(int num)
+{
+	int count = 0;
+    int x = 1;
+	for(int i = 0; i < sizeof(int) * 8; ++i)
+	{
+		if (num & x){
+			count ^= 1;
+		}
+        x <<= 1;
+	}
 
-/* bool amount_of_1_even(int num){ */
+return count;
+}
+*/
+int even_ones_in_binary(int num)
+{
+	int count = 0;
+    int x = 1;
+	for(int i = 0; i < sizeof(int) * 8; ++i)
+	{
+		if (num & x){
+			count += 1;
 
-/* 		if(num & 1){ */
-			
-/* 		} */
-
-
-/* 	return (num & 1) + amount_of_1_even(num >> 1); */
-/* } */
+		}
+        x <<= 1;
+	}
+return count % 2; 
+}
