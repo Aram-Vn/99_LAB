@@ -1,3 +1,5 @@
+//Տրված ամբողջ թվային զանգվածը սորտավորել Bubble Sort ալգորիթմով։recursiv
+
 #include <iostream>
 
 void buble_sort_rec(int* arr,int SIZE, int i, int j);

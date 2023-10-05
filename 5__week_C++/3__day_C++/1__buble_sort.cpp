@@ -1,6 +1,8 @@
+//Տրված ամբողջ թվային զանգվածը սորտավորել Bubble Sort ալգորիթմով
+
 #include <iostream>
 
-void boonle_s(int* arr,int SIZE);
+void buble_s(int* arr,int SIZE);
 
 int main(){
 
@@ -11,7 +13,7 @@ int main(){
 		std::cin >> arr[i];
 	}
 
- boonle_s(arr, SIZE);
+ buble_s(arr, SIZE);
 
 	for(int i = 0; i < SIZE; ++i){
 		std::cout << arr[i] << " ";
@@ -19,7 +21,7 @@ int main(){
  std::cout << std::endl;
 }
 
-void boonle_s(int* arr, int SIZE){
+void buble_s(int* arr, int SIZE){
 	int tmp = 0;
 	bool flag = 1;
 

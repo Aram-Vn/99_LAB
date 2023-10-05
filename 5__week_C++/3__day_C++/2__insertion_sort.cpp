@@ -1,3 +1,5 @@
+//Տրված ամբողջ թվային զանգվածը սորտավորել Insertion Sort ալգորիթմով։
+
 #include <iostream>
 
 void insertion_s(int* arr, int SIZE);
