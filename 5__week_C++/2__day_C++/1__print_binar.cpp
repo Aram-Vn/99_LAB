@@ -1,3 +1,5 @@
+//տպումա թվի 2֊ական տեսքը 32բիթ֊ում
+
 #include <iostream>
 
 void print_bin(int num);

@@ -1,3 +1,5 @@
+//Կատարել swap գործողություն թվի i և j բիթերը տեղափոխելու համար։
+
 #include <iostream>
 
 void print_bin(int num);

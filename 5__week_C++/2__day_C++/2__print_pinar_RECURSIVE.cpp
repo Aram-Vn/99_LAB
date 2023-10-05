@@ -1,3 +1,5 @@
+//տպումա թվի թ֊ական տեսքը 32բիթ֊ում ռեկուռսիվ
+
 #include <iostream>
 
 void print_bin(int num, int i);
