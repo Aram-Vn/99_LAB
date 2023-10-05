@@ -1,3 +1,5 @@
+//Գրել void reset(int n, int i), որը տրված n թվի i-րդ բիթը կդարձնի 1։
+
 #include <iostream>
 
 void replase_index(int& num, int index);

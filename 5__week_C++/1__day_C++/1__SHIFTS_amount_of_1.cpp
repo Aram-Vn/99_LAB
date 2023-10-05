@@ -1,3 +1,5 @@
+//1֊երի քանակը մենակ դրական թվերի համար
+
 #include <iostream>
 
 int amount_of_1(int num);

@@ -1,3 +1,5 @@
+//Ստուգել թվի 1 արժեքով բիթերի քանակը կենտ է, թե զույգ
+
 #include <iostream>
 
 bool amount_of_1_even(int num);

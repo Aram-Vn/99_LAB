@@ -1,3 +1,5 @@
+//Գրել void reset(int n, int i), որը տրված n թվի i-րդ բիթը կդարձնի 0։
+
 #include <iostream>
 
 void replase_index(int& num, int index);
@@ -20,7 +22,7 @@ int main(){
 
 void replase_index(int& num, int index){
  
- 	if(index < 0 || index > (sizeof(int) * 8 ) -1){
+ 	if(index < 0 || index > (sizeof(int) * 8 ) - 1){
 		std::cout << "NO!!" << std::endl;
 		num = -1;
 		return;

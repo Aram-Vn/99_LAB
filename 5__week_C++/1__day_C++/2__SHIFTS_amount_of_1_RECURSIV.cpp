@@ -1,3 +1,5 @@
+//1֊երի քանակը մենակ դրական թվերի հանժմար ռեկուրսիվ
+
 #include <iostream>
 
 int amount_of_1(int num);

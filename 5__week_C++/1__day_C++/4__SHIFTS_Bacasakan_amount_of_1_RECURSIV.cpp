@@ -1,3 +1,5 @@
+//1-երի քանակը մենակ բացասական թվերի համար ռեկուռսիվ
+
 #include <iostream>
 
 int amount_of_1(int num);
