@@ -46,20 +46,20 @@ int main(){
 /* } */
 
 
-void selection_s(int* arr, int SIZE){
+/* void selection_s(int* arr, int SIZE){ */
 
-	for(int i = 0; i < SIZE - 1; ++i){
-		for(int j = i + 1; j < SIZE; ++j){
-			if(arr[i] > arr[j]){
-				std::swap(arr[i], arr[j]);
-				j = i + 1;
-			}
-		}
-	}
+/* 	for(int i = 0; i < SIZE - 1; ++i){ */
+/* 		for(int j = i + 1; j < SIZE; ++j){ */
+/* 			if(arr[i] > arr[j]){ */
+/* 				std::swap(arr[i], arr[j]); */
+/* 				j = i + 1; */
+/* 			} */
+/* 		} */
+/* 	} */
 
-}
+/* } */
 
-/*
+
 void selection_s(int* arr, int SIZE){
 	
 	int min_ind = 0;
@@ -76,4 +76,4 @@ void selection_s(int* arr, int SIZE){
 		}
 	}
 }
-*/
+

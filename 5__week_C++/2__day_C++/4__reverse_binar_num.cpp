@@ -31,6 +31,8 @@ int main(){
  reverse_bin(num);
  print_bin(num);
  std::cout << std::endl;
+
+ std::cout << num << std::endl;
 }
 
 void print_bin(int num){
@@ -63,8 +65,6 @@ void swap_binar(int& num, int i, int j){
 
 void reverse_bin(int& num){
 
-	int shifter = (1 << 31);
-	int tmp = 0;
 	int j = 31;
 
 	for(int i = 0; i < (sizeof(int) * 8)/2 ; ++i){

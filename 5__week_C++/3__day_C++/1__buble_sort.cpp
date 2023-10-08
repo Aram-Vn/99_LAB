@@ -26,7 +26,7 @@ void buble_s(int* arr, int SIZE){
 	bool flag = 1;
 
 	for(int i = 0; i < SIZE; ++i){
-		for(int j = 0; j < SIZE - 1; ++j){
+		for(int j = 0; j < SIZE - 1 - i; ++j){
 			if(arr[j] > arr[j + 1]){
 				tmp = arr[j];
 				arr[j] = arr[j + 1];
