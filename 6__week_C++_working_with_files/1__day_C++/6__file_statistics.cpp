@@ -31,6 +31,7 @@ int main(){
 	
 
 	if(reader.is_open()){
+		std::cout << "text.txt is closed" <<std::endl;
 		reader.close();
 	}
 
@@ -42,7 +43,7 @@ int main(){
 int word_count(std::string str){
 	int word_c = 0;
 
-	if(str[0] != ' ' && str[0] != '\0'){
+	if(str[0] != ' ' && str[0] != '\n'){
 		++word_c;
 	}
 

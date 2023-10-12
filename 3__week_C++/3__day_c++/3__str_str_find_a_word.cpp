@@ -5,12 +5,12 @@ const char* str_str (const char* arr, const char* str);
 int main(){
 
  std::cout << "hel hll lllhsh h world tmp\n";
- std::cout << "lllhsh\n";
+ std::cout << "ll\n";
  std::cout << "*************************\n";
 
 
  const char* arr = "hel hll lllhsh h world tmp";
- const char* str = "lllhsh";
+ const char* str = "hll";
 
  std::cout << str_str(arr, str) << std::endl;
 

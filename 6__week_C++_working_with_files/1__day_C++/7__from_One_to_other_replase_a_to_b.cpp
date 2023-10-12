@@ -1,8 +1,7 @@
 #include <iostream>
 #include <fstream>
 
-void add_word(std::string& str);
-void replase_char(std::string& str, char ch);
+void replase_char(std::string& str);
 
 int main(){
 
@@ -18,7 +17,7 @@ int main(){
 
 	std::ofstream writer;
 	
-	writer.open("9_test.txt");
+	writer.open("text.txt.replace");
 
 	if(!writer.is_open()){
 		std::cout << "NOT OPEN" << std::endl;
@@ -29,7 +28,7 @@ int main(){
 			if(str == ""){
 				continue;
 			}	
-		add_word(str);		
+	 	replase_char(str);		
 		writer << str << std::endl; 
 	}
 	
@@ -43,14 +42,11 @@ int main(){
 
 }
 
-void add_word(std::string& str){
-	str += "9999999999";
-}
 
-void replase_char(std::string& str, char ch){
+void replase_char(std::string& str){
 	for(int i = 0; i < str.size(); ++i){
-		if(str[i] == ch){
-			str[i] = 'O';
+		if(str[i] == 'a'){
+			str[i] = 'b';
 		}
 	}
 }

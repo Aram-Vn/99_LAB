@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+
+std::string string_to_int(std::string str);
 void replase_char(std::string& str);
 
 int main(){
@@ -70,4 +72,14 @@ void replase_char(std::string& str){
 		}
 	}
 	str = res;
+}
+
+
+std::string string_to_int(std::string str){
+	int num = 0;
+	
+	for(int i = 0; i < str.length(); ++i){
+		
+	}
+
 }

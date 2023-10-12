@@ -1,0 +1,7 @@
+aaaass aa aaa  cc
+
+ecall that the C++ string is actually a class, not a built-in type. When your code makes a call to
+printString() passing a string argument, the string parameter value is initialized with a
+call to its copy constructor. The argument test to the copy constructor is the string you passed to
+printString(). In the following example, the string copy constructor is executed for the value
+object in printString() with name as its argument:

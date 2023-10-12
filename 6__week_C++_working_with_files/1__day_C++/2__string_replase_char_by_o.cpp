@@ -32,7 +32,7 @@ std::string add_word(std::string str){
 std::string replase_char(std::string str, char ch){
 	for(int i = 0; i < str.size(); ++i){
 		if(str[i] == ch){
-			str[i] = 'O';
+			str[i] = 'o';
 		}
 	}
 
