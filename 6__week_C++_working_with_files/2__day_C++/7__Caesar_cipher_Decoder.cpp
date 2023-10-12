@@ -49,13 +49,35 @@ int main(){
 }
 
 
+/* void Caesar_cipher(std::string& str, int kee){ */
+/* 	for(int i = 0; i < str.length(); ++i){ */
+/* 		if(str[i] >= 'a' && str[i] <= 'z'){ */ 
+/* 			str[i] = (str[i] - 'a' - kee + 26) % 26 + 'a'; */
+/* 		} */
+/* 		else if(str[i] >= 'A' && str[i] <= 'Z'){ */
+/* 			str[i] = (str[i] - 'A' - kee + 26) % 26 + 'A'; */
+/* 		} */ 
+/* 	} */
+/* } */
+
 void Caesar_cipher(std::string& str, int kee){
 	for(int i = 0; i < str.length(); ++i){
-		if(str[i] >= 'a' && str[i] <= 'z'){ 
-			str[i] = (str[i] - 'a' - kee + 26) % 26 + 'a';
+		if(str[i] >= 'a' && str[i] <= 'z'){
+			if(str[i] - kee >= 'a'){
+				str[i] -= kee;
+			}
+			else{
+				str[i] = str[i] - kee + 26;
+			}
 		}
 		else if(str[i] >= 'A' && str[i] <= 'Z'){
-			str[i] = (str[i] - 'A' - kee + 26) % 26 + 'A';
-		} 
+			if(str[i] - kee >= 'A'){
+				str[i] -= kee;
+			}
+			else{
+				str[i] = str[i] - kee + 26;
+			}
+		}
 	}
 }
+
