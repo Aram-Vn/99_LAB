@@ -29,10 +29,48 @@ public:
 		return m_capacity;
 	}	
 
+private:
+	void allocator(){
+		m_ptr = new int [10];
+		m_capacity = 10;
+	}
+
+	void reallocator(){
+		m_capacity += 10;
+		int* tmp_ptr = new int[m_capacity];
+		
+		for(int i = 0; i < m_size; ++i){
+			tmp_ptr[i] = m_ptr[i];
+		}
+		delete[] m_ptr;
+		m_ptr = tmp_ptr;
+		tmp_ptr = nullptr;		
+	}
+
+public:
 	void Push_back(int tmp){
  		if(!m_ptr){
-					
+			allocator();
 		}		
+		
+		if(m_size == m_capacity){
+			reallocator();
+		}
+
+		m_ptr[m_size++] = tmp;
+	}
+
+	void Pop_back(){
+		if(m_size != 0){
+			m_size -= 1; 
+		}
+	}
+
+	void print(){
+		for(int i = 0; i < m_size; ++i){
+			std::cout << m_ptr[i] << " ";
+		}
+		std::cout << std::endl;
 	}
 };
 
@@ -43,6 +81,36 @@ int main(){
 
  std::cout << obj.get_size() << std::endl;
  std::cout << obj.get_capacity() << std::endl;
+ 
+ obj.Push_back(5);
+ obj.Push_back(5);
+ obj.Push_back(5);
+ obj.Push_back(5);
+ obj.Push_back(5);
+ obj.Push_back(5);
+ obj.Push_back(5);
+ obj.Push_back(5);
+ obj.Push_back(5);
+ obj.Push_back(5);
+ obj.Push_back(5);
+ obj.Push_back(5);
+ obj.Push_back(5);
+ obj.Push_back(5);
+ obj.Push_back(5);
+
+ std::cout << obj.get_size() << std::endl;
+ std::cout << obj.get_capacity() << std::endl;
+
+ obj.print();
+
+ obj.Pop_back();
+ obj.Pop_back();
+ obj.Pop_back();
+ 
+ std::cout << obj.get_size() << std::endl;
+ std::cout << obj.get_capacity() << std::endl;
+ 
+obj.print();
 
  obj.destructor();
 }
