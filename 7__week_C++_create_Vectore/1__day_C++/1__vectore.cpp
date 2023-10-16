@@ -72,6 +72,17 @@ public:
 		}
 		std::cout << std::endl;
 	}
+
+	int& at(int index){
+		if((index >= 0 && index <= m_size) && m_ptr != nullptr){
+			return m_ptr[index];
+		}
+		else{
+			std::cout << "there is no such index" << std::endl;
+			std::cout << "segmentation fault!!!!!!" << std::endl;
+			exit(0);
+		}	
+	}
 };
 
 int main(){
@@ -81,22 +92,10 @@ int main(){
 
  std::cout << obj.get_size() << std::endl;
  std::cout << obj.get_capacity() << std::endl;
- 
- obj.Push_back(5);
- obj.Push_back(5);
- obj.Push_back(5);
- obj.Push_back(5);
- obj.Push_back(5);
- obj.Push_back(5);
- obj.Push_back(5);
- obj.Push_back(5);
- obj.Push_back(5);
- obj.Push_back(5);
- obj.Push_back(5);
- obj.Push_back(5);
- obj.Push_back(5);
- obj.Push_back(5);
- obj.Push_back(5);
+	 
+	for(int i = 0; i < 16; ++i){
+		obj.Push_back(5);
+	}
 
  std::cout << obj.get_size() << std::endl;
  std::cout << obj.get_capacity() << std::endl;
@@ -111,6 +110,10 @@ int main(){
  std::cout << obj.get_capacity() << std::endl;
  
 obj.print();
+
+ std::cout << obj.at(2) << std::endl;
+ std::cout << obj.at(8) << std::endl;
+ std::cout << obj.at(55) << std::endl;
 
  obj.destructor();
 }
