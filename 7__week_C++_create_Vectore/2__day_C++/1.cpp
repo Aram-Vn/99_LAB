@@ -129,31 +129,34 @@ public:
 
 	void insert(int index, int num){
 		if(!empty() && index >= 0 && index < m_size && m_ptr != nullptr){
-			int tmp = 0;
-			tmp = m_ptr[index];
+
+			
+				if(m_size > m_capacity){
+					reallocator();
+				}
+
+			std::cout << "SIZE" << m_size << std::endl;
+
+			for(int i = m_size; i > index - 1; --i){
+				m_ptr[i + 1] = m_ptr[i]; 				
+			}
+	
 			m_ptr[index] = num;
 
 			++m_size;
-			
-				if(m_size > m_capacity){
-					m_capacity += 5;
-				}
-				
-			int* tmp_ptr = new int[m_capacity];
-						
-				for(int i = 0; i < m_size; ++i){
-					if(i == index){
-						tmp_ptr[i] = num;
-						continue;
-					}
-					tmp_ptr[i] = m_ptr[i];
-				}
-				delete[] m_ptr;
-				m_ptr = tmp_ptr; 
-				tmp_ptr = nullptr;	
 		}
 	}
-	
+
+	void erase(int index){
+		int tmp = 0;
+		
+		if(m_size != 0 && m_ptr != nullptr){
+			for(int i = index; i < m_size; ++i){
+				m_ptr[i] = m_ptr[i + 1];				
+			}  
+			--m_size;
+		}
+	}	
 
 	bool empty(){
 		if(m_size == 0){
@@ -175,7 +178,7 @@ int main(){
  std::cout << obj.get_capacity() << std::endl;
 	 
 	for(int i = 0; i < 16; ++i){
-		obj.Push_back(5);
+		obj.Push_back(i);
 	}
 
  std::cout << obj.get_size() << std::endl;
@@ -197,6 +200,11 @@ int main(){
  
  obj.print();
 
+ std::cout << "ERASE 4" << std::endl;
+
+ obj.erase(4);
+
+ obj.print();
  std::cout << obj.at(2) << std::endl;
  std::cout << obj.at(8) << std::endl;
 // std::cout << obj.at(55) << std::endl;

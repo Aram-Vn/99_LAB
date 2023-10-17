@@ -130,22 +130,20 @@ public:
 	void insert(int index, int num){
 		if(!empty() && index >= 0 && index < m_size && m_ptr != nullptr){
 
-			++m_size;
 			
 				if(m_size > m_capacity){
 					reallocator();
 				}
-			
-			int tmp = 0;
-			tmp = m_ptr[index];						
-			m_ptr[index] = num;
-			m_ptr[index + 1] = tmp;
 
-			for(int i = index + 1; i < m_size; ++i){
-				m_ptr[i] = m_ptr[i + 1];
+			std::cout << "SIZE" << m_size << std::endl;
+
+			for(int i = m_size; i > index - 1; --i){
+				m_ptr[i + 1] = m_ptr[i]; 				
 			}
 	
+			m_ptr[index] = num;
 
+			++m_size;
 		}
 	}
 
