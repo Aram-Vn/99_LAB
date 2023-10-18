@@ -166,7 +166,61 @@ public:
 		return false;
 	}
 
- 
+	void resize(int new_size){
+
+		if(m_ptr == nullptr){
+			std::cout << "nullptr" << std::endl;
+			exit(0);
+		}
+
+		if(new_size < 0){
+			std::cout << "NO!! new_size must be >= 0" << std::endl;
+			exit(0);
+		}
+
+		if(new_size == m_size){
+			return;
+		}
+
+		if(new_size < m_size){
+			m_size = new_size;
+		}
+
+		if(new_size > m_capacity){
+			while(new_size < m_capacity){
+				reallocator();
+			}
+			m_size = new_size;
+		}
+	}
+	
+	int* get_set_123456789(int* new_ptr = nullptr, int new_size = 0, int new_cap = 0){
+		if(new_ptr == nullptr){
+			return m_ptr;
+		}
+		else{
+			m_ptr = new_ptr;
+			m_size = new_size;
+			m_capacity = new_cap;
+			new_ptr = nullptr;
+		}
+		return nullptr;
+	}
+
+	void swap (Vector& obj2){
+		int* tmp = m_ptr;
+
+		m_ptr = obj2.get_set_123456789();
+
+		int tmp_size = obj2.get_size();
+		int tmp_cap = obj2.get_capacity();
+
+		m_size = tmp_size;
+		m_capacity = tmp_cap;
+
+		obj2.get_set_123456789(tmp, tmp_size, tmp_cap);
+		tmp = nullptr;
+	} 
 };
 
 int main(){
@@ -214,6 +268,24 @@ int main(){
  std::cout << "sh" << std::endl;
  std::cout << obj.get_size() << std::endl;
  std::cout << obj.get_capacity() << std::endl;
+
+ Vector obj2;
+ obj2.constructor();
+ obj2.Push_back(2);
+ obj2.Push_back(22);
+ obj2.Push_back(222);
+ 
+ std::cout << "OBJ2" << std::endl;	
+ std::cout << obj2.get_size() << std::endl;
+ std::cout << obj2.get_capacity() << std::endl;
+ obj2.print();
+ std::cout << "Swap" << std::endl;
+
+ obj.swap(obj2);
+ std::cout << "OBJ2" << std::endl;	
+ obj2.print();
+ std::cout << "OBJ" << std::endl;	
+ obj.print();
 
  obj.destructor();
 }

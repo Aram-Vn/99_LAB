@@ -39,6 +39,6 @@ int sqrt_1(int num){
 		}
 	}
 	
-	/* return mid; */
-	/* return -1; */
+	std::cout << mid << "mid" << std::endl;	
+	std::cout << start << "start" << std::endl;	
 }
