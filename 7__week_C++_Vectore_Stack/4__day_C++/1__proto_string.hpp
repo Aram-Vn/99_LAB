@@ -13,10 +13,14 @@ private:
 
 	void allocator();
 	void reallocator();
+	void Error();
 public:
+	void push(const char*);
 	char& at(int);
 	char& front();
 	char& back();
 	const char* C_ctr();
 	bool is_empty();
+	void reserve(int);
+	void shrink_to_fit();
 };

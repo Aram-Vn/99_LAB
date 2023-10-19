@@ -44,13 +44,21 @@
 		tmp_ptr = nullptr;	
 	}
 
+	void String::push(const char* new_str){
+		
+	}
+
+	void String::Error(){
+		std::cout << "there is no such index" << std::endl;
+		std::cout << "segmentation fault!!" << std::endl;
+		exit(0);
+	}
+
 	char& String::at(int index){
 		if((index >= 0 && index <= m_size - 1) && m_ptr != nullptr){
 			return m_ptr[index];
 		} else {
-			std::cout << "there is no such index" << std::endl;
-			std::cout << "segmentation fault!!" << std::endl;
-			exit(0);
+			Error();
 		}
 	}
 
@@ -58,9 +66,7 @@
 		if(m_ptr != nullptr){
 			return m_ptr[0];
 		} else {
-			std::cout << "there is no such index/nullptr" << std::endl;
-			std::cout << "segmentation fault!!" << std::endl;
-			exit(0);
+			Error(); 
 		}
 	}
 
@@ -68,9 +74,7 @@
 		if(m_ptr != nullptr){
 			return m_ptr[m_size - 2];
 		} else {
-			std::cout << "there is no such index/nullptr" << std::endl;
-			std::cout << "segmentation fault!!" << std::endl;
-			exit(0);
+			Error(); 
 		}
 	}
 
@@ -78,18 +82,50 @@
 		if(m_ptr != nullptr){ 
 			return m_ptr;
 		} else {
-			std::cout << "there is no such index/nullptr" << std::endl;
-			std::cout << "segmentation fault!!" << std::endl;
-			exit(0);
+			Error(); 
 		}
 	}
 
 	bool String::is_empty(){
 		if(m_size > 0 && m_ptr != nullptr){
 			return false;
-		} else {
-			return true;
+		} else if(m_ptr != nullptr){
+			std::cout << "nullptr" << std::endl;
+			exit(0);
+		}
+		return true;
+	}
+
+	void String::reserve(int new_cap){
+		if(new_cap > m_cap){
+			m_cap = new_cap;
+
+			char* tmp_ptr = new char[m_cap];
+
+			for(int i = 0; i < m_size; ++i){
+				tmp_ptr[i] = m_ptr[i];
+			}
+			
+			delete [] m_ptr;
+			m_ptr = tmp_ptr;
+			tmp_ptr = nullptr;
 		}
 	}
+
+	void String::shrink_to_fit(){
+		if(m_ptr != nullptr && m_size != m_cap){
+			m_cap = m_size;
+			char* tmp_ptr = new char[m_cap];
+
+			for(int i = 0; i < m_size; ++i){
+				tmp_ptr[i] = m_ptr[i];
+			}
+			delete[] m_ptr;
+			m_ptr = tmp_ptr;
+			tmp_ptr = nullptr;
+		}		
+	}
+
+
 
 
