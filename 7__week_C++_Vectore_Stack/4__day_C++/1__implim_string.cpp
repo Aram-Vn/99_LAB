@@ -32,8 +32,8 @@
 		m_cap = 10;
 	}
 
-	void String::reallocator(){
-		m_cap += 10;
+	void String::reallocator(int amout = 10){
+		m_cap += amout + 10;
 		char* tmp_ptr = new char[m_cap];
 	
 			for(int i = 0; i < m_size; ++i){
@@ -44,23 +44,29 @@
 		tmp_ptr = nullptr;	
 	}
 
+	int String::Size(const char* str){
+		int tmp = 0;
+		
+		while(str[tmp]){
+			++tmp;
+		}
+
+		return tmp;
+	}
+
 	void String::push(const char* new_str){
 		if(m_ptr = nullptr){
 			allocator();
 		}	
 		
-		int tmp = 0;
+		int str_size = Size(new_str);
 	
-		while(new_str[tmp]){
-			++tmp;
-		}
-	
-		if(m_cap < tmp){
-			while(m_cap < tmp){
+		if(m_cap < str_size){
+			while(m_cap < str_size){
 				reallocator();
 			}	
 		}
-		m_size = tmp;
+		m_size = str_size;
 		
 		for(int i = 0; i < m_size; ++i){
 			m_ptr[i] = new_str[i];
@@ -155,6 +161,137 @@
 		}		
 	}
 
+	void String::insert(int index, char ch){
+		if(!is_empty() && (index >= 0 && index < m_size) && m_ptr != nullptr){
+			++m_size;
 
+			if(m_size > m_cap){
+				reallocator();
+			}
 
+			for(int i = m_size; i > index - 1; --i){
+				m_ptr[i + 1] = m_ptr[i];
+			}
 
+			m_ptr[index] = ch;
+	
+		}
+	}
+
+	void String::erase(int index, int amount = 0){
+		if(!is_empty() && (index >= 0 && index < m_size) && m_ptr != nullptr){
+			if(amount == 0){
+				for(int i = index; i < m_size; ++i){
+					m_ptr[i] = m_ptr[i + 1]; 
+				}
+				--m_size;
+			}
+			else if(amount > 0){
+				if((m_size - amount) >= index){
+					for(int i = index; i < m_size; ++i){
+						m_ptr[i] = m_ptr[i + amount]; 
+					}
+					m_size -= amount;
+				} else {
+					std::cout << "second argument is too big" << std::endl;
+					std::cout << "amount is to big" << std::endl;
+				}				
+			}
+		}
+		else{
+		std::cout << "erase:: there is no such index || nullptr" << std::endl;
+		return;
+		}
+	}
+
+	void String::push_back(char ch){
+		if(m_ptr != nullptr){
+			++m_size;
+	
+			if(m_size > m_cap){
+				reallocator();
+			}
+			m_ptr[m_size - 1] = ch;
+		} else {
+			Error();
+		}
+		
+	}
+
+	void String::pop_back(){
+		if(m_ptr != nullptr){
+			--m_size;
+			m_ptr[m_size] = '\0';
+		} else {
+			Error();
+		}
+	}
+
+	void String::append(const char* str){
+		int str_size = Size(str);
+		int last = m_size - 1;
+	
+		m_size += str_size;	
+	
+		while(str_size > m_cap){
+			reallocator();
+		} 
+
+		int j = last;		
+
+		for(int i = 0 ; i <= str_size; ++i){
+			m_ptr[j] = str[i];
+			++j;
+		} 	
+		m_ptr[m_size] = '\0';
+	}
+
+	char* String::substr(int index){
+		if(!is_empty() && index >= 0 && index < m_size){
+			char* ch = &m_ptr[index];
+		}
+	}
+
+	void String::copy(char* str, int amount, int index = 0){
+		if(!is_empty() && index >= 0 && index < m_size && (m_size - index) >= amount){ 			
+			if(index == 0){
+				for(int i = 0; i < amount; ++i){
+					str[i] = m_ptr[i];
+				}
+				str[amount] = '\0';
+				return;
+			} else {
+				int j = index;
+				for(int i = 0; i < amount; ++i){
+					str[i] = m_ptr[j];
+					++j;
+				}
+				str[amount] = '\0';
+			}		
+		}
+	} 
+
+void String::resize(int count, char ch = '\0'){
+		if(count > m_size){	
+
+			if(m_cap < (m_size + count)){
+				reallocator((m_size + count) - m_cap);
+			}	
+		
+			int tmp = m_size;
+			m_size += count;
+	
+			if(ch == '\0'){
+				for(int i = tmp - 1; i < m_size; ++i){
+					m_ptr[i] =  ch;
+				}
+			} else {
+				for(int i = tmp; i < m_size - tmp; ++i){
+					m_ptr[i] = ch;
+				}
+				m_ptr[m_size] = '\0';
+			}
+		} else {
+			m_size = count;
+		}
+	}
