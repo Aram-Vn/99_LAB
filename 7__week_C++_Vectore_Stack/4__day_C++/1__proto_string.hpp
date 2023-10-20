@@ -16,6 +16,7 @@ private:
 	void Error();
 public:
 	void push(const char*);
+	void print();
 	char& at(int);
 	char& front();
 	char& back();

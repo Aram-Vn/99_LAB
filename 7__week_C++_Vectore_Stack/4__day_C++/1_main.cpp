@@ -3,5 +3,7 @@
 
 int main(){
 	String str;
+	str.push("hell");
+	str.print();
 	str.constructor();
 }

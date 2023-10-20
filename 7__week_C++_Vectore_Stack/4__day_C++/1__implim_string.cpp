@@ -45,7 +45,36 @@
 	}
 
 	void String::push(const char* new_str){
+		if(m_ptr = nullptr){
+			allocator();
+		}	
 		
+		int tmp = 0;
+	
+		while(new_str[tmp]){
+			++tmp;
+		}
+	
+		if(m_cap < tmp){
+			while(m_cap < tmp){
+				reallocator();
+			}	
+		}
+		m_size = tmp;
+		
+		for(int i = 0; i < m_size; ++i){
+			m_ptr[i] = new_str[i];
+		}
+
+		m_ptr[m_size + 1] ='\0';
+
+	}
+
+	void String::print(){
+		if(m_ptr != nullptr){
+			const char* ch = m_ptr;
+			std::cout << ch << std::endl;
+		}
 	}
 
 	void String::Error(){
