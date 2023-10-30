@@ -295,3 +295,28 @@ void String::resize(int count, char ch = '\0'){
 			m_size = count;
 		}
 	}
+
+char* String::set_get_123456789(char* new_ptr = nullptr, int new_size = 0, int new_cap = 0){
+	if(new_ptr = nullptr){
+		return m_ptr;	
+	} else {
+		m_size = new_size;
+		m_cap = new_cap;
+		m_ptr = new_ptr;
+	}
+	return nullptr;
+}
+
+void String::swap(String& other){
+	char* tmp_ptr = m_ptr;
+
+	m_ptr = set_get_123456789();	
+
+	int tmp_size = m_size;
+	int tmp_cap = m_cap;
+
+	set_get_123456789(tmp_ptr, m_size, m_cap);
+
+	m_size = tmp_size;
+	m_cap = tmp_cap;
+} 

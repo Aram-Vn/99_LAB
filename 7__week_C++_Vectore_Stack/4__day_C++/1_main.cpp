@@ -8,12 +8,14 @@ int main(){
  str1.constructor();
 
  str.push("0123456789");
- str1.push(str.substr(5));
- 
- str1.print();
 
- str.resize(15);
- str.print();
+ /* str1.swap */
+ /* str1.push(str.substr(5)); */
+ 
+ /* str1.print(); */
+
+ /* str.resize(15); */
+ /* str.print(); */
  /* str.insert(0, 'a'); */
  /* std::cout << str.at(1) << std::endl; */
 
@@ -33,8 +35,8 @@ int main(){
  /* str.print(); */
 
 
- /* char* ch = str.substr(0, 5); */ 
- /* std::cout << "ch" << ch << std::endl; */
+ char* ch = str.substr(5); 
+ std::cout << "ch" << ch << std::endl;
  
 
  str.destructor();

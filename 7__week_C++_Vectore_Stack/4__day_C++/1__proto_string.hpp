@@ -33,4 +33,6 @@ public:
 	char* substr(int);   // 19	
 	void copy(char*, int, int); // 20	
 	void resize(int, char);     // 21
+	char* set_get_123456789(char*, int ,int); 	
+	void swap(String&);                    // 22
 };
