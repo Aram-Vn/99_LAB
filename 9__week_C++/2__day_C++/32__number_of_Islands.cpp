@@ -48,7 +48,7 @@ void dfs(int tmp[][4], int i, int j, int rows, int columns) {
         return;
     }
 
-    tmp[i][j] = 0; // Mark the cell as visited
+    tmp[i][j] = 0; 
 
     dfs(tmp, i - 1, j, rows, columns);
     dfs(tmp, i + 1, j, rows, columns);
