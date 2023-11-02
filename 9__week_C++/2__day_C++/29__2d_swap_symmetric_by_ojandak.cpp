@@ -36,8 +36,8 @@ void swap_by_ojandak(int arr[4][4]){
 
 
 	for (int i = 0; i < size; i++) {
-    	for (int j = size - i - 2; j >= size; --j) {
-			std::swap(arr[ ][ ], arr[ ][ ]);
+    	for (int j = 0; j < size - i - 1; ++j) {
+			std::swap(arr[i][j], arr[size - j - 1][size - i - 1]);
         }
     }
 }
