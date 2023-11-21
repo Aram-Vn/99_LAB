@@ -1,7 +1,7 @@
 #include <iostream>
 
 int log_2(int num);
-int log_bin(int num, int x);
+int log_bin(int num);
 
 int main(){
 
@@ -10,7 +10,7 @@ int main(){
 
  std::cout << "********\n";
  
- std::cout << log_bin(num, 2) << " bin " << std::endl;
+ std::cout << log_bin(num) << " bin " << std::endl;
  std::cout << log_2(num) << " loop "<<std::endl;
 
 }
@@ -37,7 +37,7 @@ int log_2(int num){
 	return -1;
 }
 
-int log_bin(int num, int x){
+int log_bin(int num){
 	if(num < 0){
 		return -1;
 	}
@@ -48,7 +48,7 @@ int log_bin(int num, int x){
 
 	for(int i = 1 ; num > 1 ; ++i){
 	
-		if(num == x){
+		if(num == 2){
 			return i;
 		}
 	
@@ -57,9 +57,6 @@ int log_bin(int num, int x){
 		if(num <= 1){
 			return i;
 		}	
-
-	std::cout << num << " NUM " << std::endl;
-	std::cout << i << "  I " << std::endl;
 	}
 
 	return -1;
