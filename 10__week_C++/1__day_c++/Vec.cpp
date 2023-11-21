@@ -8,6 +8,10 @@ public:
 	Vec();
 	~Vec();
 	Vec(size_t new_size, T val = 0);
+	Vec(const Vec& other);
+	Vec(Vec&& other) noexcept;
+
+	T& operator[](int ind) const;
 
 public:
 	size_t Size() const; //returns m_size
@@ -28,6 +32,7 @@ public:
 	void insert(int ind, const T& val); 
 	void erase(int ind); 	
 	void swap (Vec& other);
+	void clear(); //Removes all elements from the vector, leaving the container with a size of 0.
 
 private:	
 	void realloc(size_t new_cap = 0); // reallocates memory, if no argument passed doubles the cap, else cap is equal to new_cap
@@ -38,7 +43,21 @@ private:
 	T* m_ptr;
 };
 
+template <class T>
+std::ostream& operator<<(std::ostream& os, const Vec<T>& obj);
+
+
 int main(){
+
+ Vec<int> v;
+
+	for(int i = 0; i < 7; ++i){
+		v.push_back(i);
+	}
+	
+ v.insert(4, 44);
+ 
+ std::cout << v << std::endl;
 
 }
 
@@ -66,6 +85,45 @@ Vec<T>::Vec(size_t new_size, T val) :
 	for(int i = 0; i < m_size; ++i){
 		m_ptr[i] = val;
 	}
+}
+
+template <class T>
+Vec<T>::Vec(const Vec& other) :
+	m_size{other.m_size},
+	m_cap{other.m_cap}, 
+	m_ptr{new int[m_cap]} 
+{
+	for(int i = 0; i < m_size; ++i){
+		this->m_ptr[i] = other.m_ptr[i]; 
+	}
+}
+
+template <class T>
+Vec<T>::Vec(Vec&& other) noexcept :
+	m_size{other.m_size},
+	m_cap{other.m_cap}, 
+	m_ptr{new int[m_cap]} 
+{
+	other.m_size = 0;
+	other.m_cap = 0;
+	other.m_ptr = nullptr;
+}
+
+template <class T>
+T& Vec<T>::operator[](int ind) const
+{
+	if(m_ptr == nullptr){
+		std::cout << "for[]\nnullptr" << std::endl;
+		exit(0);
+	}
+
+	if(ind >= 0 && ind < m_size){
+		return *(m_ptr + ind);	
+	} else {
+		std::cout << "in Vec[ind] ind must be >=0 && < size" << std::endl;
+		exit(0);
+	}
+	
 }
 
 template <class T>
@@ -267,5 +325,31 @@ void Vec<T>::erase(int ind)
 template <class T>
 void Vec<T>::swap (Vec& other)
 {
+	    size_t tmp_Size = m_size;
+        m_size = other.m_size;
+        other.m_size = tmp_Size;
+
+        size_t tmp_Cap = m_cap;
+        m_cap = other.m_cap;
+        other.m_cap = tmp_Cap;
+
+        T* tmp_Ptr = m_ptr;
+        m_ptr = other.m_ptr;
+        other.m_ptr = tmp_Ptr;
+}
+
+template <class T>
+void Vec<T>::clear()
+{
+	m_size = 0;
+}
+
+template <class T>
+std::ostream& operator<<(std::ostream& os, const Vec<T>& obj)
+{
+	for(int i = 0; i < obj.Size(); ++i){
+		os << obj[i] << " ";   
+	}
 	
+	return os;
 }
